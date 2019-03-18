@@ -1,0 +1,23 @@
+<div style="text-align:center">
+  <mat-toolbar color="primary">
+    LocalCast Weather
+  </mat-toolbar>
+   <div>Your city, your forecast, right now!</div>
+   <div fxLayoutAlign="center">
+    <app-citysearch (searchEvent)="doSearch($event)"></app-citysearch>
+  </div>
+  <mat-card>
+     <h2>Current Weather</h2>
+     <div *ngIf="current">
+      <div>
+         <span> {{current.city}} {{current.country}}</span>
+         <span>  {{current.date | date:'fullDate'}}</span>
+      </div>
+      <div>
+        <img [src]='current.image'>
+        <span>{{current.temperature | number:'1.0-0'}} &#8457;</span>
+      </div>
+      <div>{{current.description}}</div>
+    </div>
+</mat-card>    
+
